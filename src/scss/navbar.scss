@@ -1,0 +1,78 @@
+// navbar styles
+
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0;
+    background-color: rgba($color: #000, $alpha: 0);
+    transition: background-color .4s ease;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    .fake-flex {
+        flex: 0 0 150px;
+    }
+    .social {
+        height: 48px;
+        a {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            box-sizing: border-box;
+            padding: 0;
+            span {
+                display: none;
+            }
+        }
+        a::before {
+            content: "";
+            position: absolute;
+            background-size: 34px;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 48px;
+            height: 48px;
+        }
+        a.facebook::before {
+            background-image: url('../img/social/facebook-white.svg');
+        }
+        a.instagram::before {
+            background-image: url('../img/social/instagram-white.svg');
+        }
+    }
+    
+        
+    
+    
+}
+
+.active {
+    .navbar {
+        background-color: rgba($color: #000, $alpha: .7);
+    }
+}
+.logo-brand {
+    width: 150px;
+    position: absolute;
+    z-index: 100;
+    padding-top: 5px;
+    left: 20px;
+}
+.navbar-start {
+    a {
+        padding: 12px 10px;
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color .3s ease;
+        background-color: rgba($color: #000, $alpha: 0);
+    }
+    a:hover {
+        background-color: rgba($color: #000, $alpha: .5);
+    }
+}

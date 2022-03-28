@@ -1,0 +1,62 @@
+.video-contain {
+    position: absolute;
+    width: 100%;
+    height: 85vh;
+    z-index: 100;
+    &__gradient {
+      position: absolute;
+      width: 100%;
+      height: 500px;
+  
+      /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+1,003333+100&0.6+0,0+100 */
+        background: -moz-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.59) 1%, rgba(0,51,51,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.59) 1%,rgba(0,51,51,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.59) 1%,rgba(0,51,51,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#00003333',GradientType=0 ); /* IE6-9 */
+
+    }
+    .callto {
+        height: 100%;
+        position: relative;
+        h1 {
+            font-family: $displayText;
+            text-transform: capitalize;
+            
+            span {
+                font-family: $bodyText;
+                display: block;
+                text-transform: uppercase;
+                font-size: .8em;
+            }
+        }
+    }
+  }
+  video,
+  .videoImage {
+    object-fit: cover;
+    width: 100%;
+    height: 85vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .therest {
+      padding-top: 85vh;
+  }
+
+  #reservations {
+      padding-top: 50px;
+      margin-top: -92px;
+      z-index: 101;
+      position: relative;
+      > div {
+          background: $cedarblue;
+          border-radius: 10px;
+          color: #fff;
+          padding: 20px;
+          p {
+              margin: 0;
+          }
+      }
+  }

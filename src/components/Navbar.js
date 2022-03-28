@@ -1,36 +1,23 @@
 import React from "react";
-import { Link } from "gatsby";
-import github from "../img/github-icon.svg";
-import logo from "../img/logo.svg";
+//import { Link } from "gatsby";
+
+import logo from "../img/CEDAR-LOGO-FINAL.svg";
+
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false,
-      navBarActiveClass: "",
+  state = {
+    open: false,
+  }
+  handleButtonClick = () => {
+      this.setState(state => {
+        return {
+          open: !state.open,
+        };
+      });
     };
-  }
 
-  toggleHamburger() {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: "is-active",
-            })
-          : this.setState({
-              navBarActiveClass: "",
-            });
-      }
-    );
-  }
 
   render() {
     return (
@@ -39,59 +26,62 @@ const Navbar = class extends React.Component {
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container">
-          <div className="navbar-brand">
+        <div className="inside-xxl always-flex justify relative">
+          <div className="logo-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
+              <img src={logo} alt="Cedar Motel" />
             </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              role="menuitem"
-              tabIndex={0}
-              onKeyPress={() => this.toggleHamburger()}
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
+            
+            <div className={this.state.open ? "hamburger active" : "hamburger" }>
+
+              <div className="ham-trigger flex-vertical" onClick={this.handleButtonClick} onKeyDown={this.handleButtonClick} role="button" tabIndex="0">
+                  <div className={this.state.open ? "ham-button active" : "ham-button" }>
+                      <span className="line line-1"></span>
+                      <span className="line line-2"></span>
+                      <span className="line line-3"></span>
+                  </div>
+              </div>
+
             </div>
+
           </div>
+
+          <div className="fake-flex"></div>
+
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`navbar-menu always-flex ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
+
+              <Link activeClass="active" className="pointy-button" to="reservations" spy={true} smooth={true} duration={1000}>
+                Reservations
+              </Link>
+
+              <Link activeClass="active" className="pointy-button" to="about" spy={true} smooth={true} duration={1000}>
                 About
               </Link>
-              <Link className="navbar-item" to="/products">
-                Products
+
+              <Link activeClass="active" className="pointy-button" to="accommodations" spy={true} smooth={true} duration={1000}>
+                Accomodations
               </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
+
+              <Link activeClass="active" className="pointy-button" to="findus" spy={true} smooth={true} duration={1000}>
+                Find Us
               </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
+              
             </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
+
+            
           </div>
+
+          <div className="social">
+            <a className="facebook" href="https://facebook.com"><span>Facebook</span></a>
+            <a className="instagram" href="https://instagram.com"><span>Instagram</span></a>
+          </div>
+
+          
+
         </div>
       </nav>
     );
